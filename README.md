@@ -59,13 +59,13 @@ the jobs run on a defined schedule. First option is great for testing/debugging 
 
 Notice that the two jobs are executed in parallel. Some jobs support parameters, declaring them in metadata. Parameters
 can be configured in YAML configuration file under the "jobs" key (or via other Bootique configuration mechanisms, such
-as environment variables). Check ```params.yml``` and ```ParameterizedJob``` for an example. You can run this job as
+as environment variables). Check [```params.yml```](https://github.com/bootique-examples/bootique-jobs-demo/blob/master/params.yml) and ```ParameterizedJob``` for an example. You can run this job as
 follows:
 
     java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=parameterized --config=params.yml
 
 Now let's schedule jobs to run at a certain interval. Scheduling information is placed in a YAML file under
-the "scheduler" key. Check ```scheduler.yml``` for an example. It shows scheduling jobs with fixed delay, as well
+the "scheduler" key. Check [```scheduler.yml```](https://github.com/bootique-examples/bootique-jobs-demo/blob/master/scheduler.yml) for an example. It shows scheduling jobs with fixed delay, as well
 as using a cron expression. Run it and wait and see how jobs are invoked periodically (use Ctrl-C to stop the application):
 
     java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --schedule --config=scheduler.yml
