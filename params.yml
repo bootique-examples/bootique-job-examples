@@ -1,0 +1,5 @@
+# an example of configuring job parameters:
+jobs:
+  parameterized:
+    d: 2016-01-02
+    l: 345
