@@ -73,4 +73,4 @@ as using a cron expression. Run it and wait and see how jobs are invoked periodi
 
 ## Clustering Jobs with Zookeeper
 
-If your job apps runs on a cluster, you might want to prevent two or more instances from runni
+TODO
