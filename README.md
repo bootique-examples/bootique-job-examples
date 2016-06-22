@@ -43,11 +43,21 @@ One of the options is ```--list``` that tells you what jobs are available:
 
     Available jobs:
          - simple
+         - job1
+         - injection
+         - parameterized(d:date, l:long)
 
-From here you have two options - run one or more jobs once from the command line, or start the app as a daemon and let the jobs run on a defined schedule. First option is great for testing/debugging or when you have an external scheduler (such as UNIX cron). So let's run both jobs at once:
+From here you have two options - run one or more jobs once from the command line, or start the app as a daemon and let
+the jobs run on a defined schedule. First option is great for testing/debugging or when you have an external scheduler
+(such as UNIX cron). So let's run both jobs at once:
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=simple --job=job2
+    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=simple --job=job1
 
-Now let's schedule jobs. Scheduling information is provided in ```run.yml```:
+Notice that the two jobs are executed in parallel.
+
+Now
+
+Now let's schedule jobs. Scheduling information is
+provided in ```run.yml```:
 
     java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --schedule --config=run.yml

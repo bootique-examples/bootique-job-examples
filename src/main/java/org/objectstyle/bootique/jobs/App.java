@@ -2,8 +2,11 @@ package org.objectstyle.bootique.jobs;
 
 import com.google.inject.Binder;
 import com.google.inject.Module;
+import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.nhl.bootique.Bootique;
 import com.nhl.bootique.job.runtime.JobModule;
+import org.objectstyle.bootique.jobs.services.EchoService;
 
 /**
  * A runnable Bootique + Jobs application.
@@ -17,7 +20,17 @@ public class App implements Module {
     @Override
     public void configure(Binder binder) {
 
-        // contribute jobs to the JobModule
+        // contribute available jobs to the JobModule
         JobModule.contributeJobs(binder).addBinding().to(SimpleJob.class);
+        JobModule.contributeJobs(binder).addBinding().to(SimpleJob1.class);
+        JobModule.contributeJobs(binder).addBinding().to(InjectionJob.class);
+        JobModule.contributeJobs(binder).addBinding().to(ParameterizedJob.class);
+    }
+
+    // Provide a service. This makes it injectable.
+    @Provides
+    @Singleton
+    EchoService provideEacho() {
+        return new EchoService();
     }
 }
