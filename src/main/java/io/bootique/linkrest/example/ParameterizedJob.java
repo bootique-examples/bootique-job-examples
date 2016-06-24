@@ -1,4 +1,4 @@
-package org.objectstyle.bootique.jobs;
+package io.bootique.linkrest.example;
 
 import com.nhl.bootique.job.BaseJob;
 import com.nhl.bootique.job.JobMetadata;

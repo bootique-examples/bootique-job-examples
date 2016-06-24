@@ -1,4 +1,4 @@
-package org.objectstyle.bootique.jobs;
+package io.bootique.linkrest.example;
 
 import com.nhl.bootique.job.BaseJob;
 import com.nhl.bootique.job.JobMetadata;
@@ -6,12 +6,11 @@ import com.nhl.bootique.job.runnable.JobResult;
 
 import java.util.Map;
 
-public class SimpleJob extends BaseJob {
+public class SimpleJob1 extends BaseJob {
 
-    public SimpleJob() {
-        // Pass default metadata object to super constructor. Job will be named based on the
-        // class name (sans "Job" suffix).
-        super(JobMetadata.build(SimpleJob.class));
+    public SimpleJob1() {
+        // Pass metadata object to the super constructor. Configure metadata to use a custom job name.
+        super(JobMetadata.build("job1"));
     }
 
     @Override
@@ -19,7 +18,7 @@ public class SimpleJob extends BaseJob {
 
         // in a real job here you would implement your logic
         try {
-            Thread.sleep(1000L);
+            Thread.sleep(1100L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,4 +26,3 @@ public class SimpleJob extends BaseJob {
         return JobResult.success(getMetadata());
     }
 }
-

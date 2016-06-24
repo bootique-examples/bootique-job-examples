@@ -1,4 +1,4 @@
-package org.objectstyle.bootique.jobs.services;
+package io.bootique.linkrest.example.services;
 
 /**
  * A dummy service that "echos" its method argument.
