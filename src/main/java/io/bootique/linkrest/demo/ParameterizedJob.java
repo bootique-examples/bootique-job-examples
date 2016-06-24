@@ -1,4 +1,4 @@
-package io.bootique.linkrest.example;
+package io.bootique.linkrest.demo;
 
 import com.nhl.bootique.job.BaseJob;
 import com.nhl.bootique.job.JobMetadata;

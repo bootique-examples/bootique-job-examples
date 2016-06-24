@@ -1,4 +1,4 @@
-package io.bootique.linkrest.example.services;
+package io.bootique.linkrest.demo.services;
 
 /**
  * A dummy service that "echos" its method argument.

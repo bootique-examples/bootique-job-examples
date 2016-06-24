@@ -1,11 +1,11 @@
-package io.bootique.linkrest.example;
+package io.bootique.linkrest.demo;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.nhl.bootique.job.BaseJob;
 import com.nhl.bootique.job.JobMetadata;
 import com.nhl.bootique.job.runnable.JobResult;
-import io.bootique.linkrest.example.services.EchoService;
+import io.bootique.linkrest.demo.services.EchoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
