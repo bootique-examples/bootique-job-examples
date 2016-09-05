@@ -1,8 +1,8 @@
 package io.bootique.linkrest.demo;
 
-import com.nhl.bootique.job.BaseJob;
-import com.nhl.bootique.job.JobMetadata;
-import com.nhl.bootique.job.runnable.JobResult;
+import io.bootique.job.BaseJob;
+import io.bootique.job.JobMetadata;
+import io.bootique.job.runnable.JobResult;
 
 import java.util.Map;
 
