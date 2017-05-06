@@ -21,16 +21,16 @@ public class App implements Module {
     public void configure(Binder binder) {
 
         // contribute available jobs to the JobModule
-        JobModule.contributeJobs(binder).addBinding().to(SimpleJob.class);
-        JobModule.contributeJobs(binder).addBinding().to(SimpleJob1.class);
-        JobModule.contributeJobs(binder).addBinding().to(InjectionJob.class);
-        JobModule.contributeJobs(binder).addBinding().to(ParameterizedJob.class);
+        JobModule.extend(binder).addJob(SimpleJob.class);
+        JobModule.extend(binder).addJob(SimpleJob1.class);
+        JobModule.extend(binder).addJob(InjectionJob.class);
+        JobModule.extend(binder).addJob(ParameterizedJob.class);
     }
 
     // Provide a service. This makes it injectable.
     @Provides
     @Singleton
-    EchoService provideEacho() {
+    EchoService provideEcho() {
         return new EchoService();
     }
 }
