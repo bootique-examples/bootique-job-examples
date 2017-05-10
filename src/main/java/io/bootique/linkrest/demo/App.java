@@ -21,10 +21,7 @@ public class App implements Module {
     public void configure(Binder binder) {
 
         // contribute available jobs to the JobModule
-        JobModule.extend(binder).addJob(SimpleJob.class);
-        JobModule.extend(binder).addJob(SimpleJob1.class);
-        JobModule.extend(binder).addJob(InjectionJob.class);
-        JobModule.extend(binder).addJob(ParameterizedJob.class);
+        JobModule.extend(binder).addJob(SimpleJob.class).addJob(SimpleJob1.class).addJob(InjectionJob.class).addJob(ParameterizedJob.class);
     }
 
     // Provide a service. This makes it injectable.
