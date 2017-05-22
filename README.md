@@ -2,7 +2,7 @@
 
 # bootique-jobs-demo
 
-An example that explains how to write jobs on Bootique platform. Jobs can be run individually from command line, or scheduled with internal scheduler.
+An example that explains how to write jobs on [Bootique](http://bootique.io) platform. Jobs can be run individually from command line, or scheduled with internal scheduler.
 
 *For additional help/questions about this example send a message to
 [Bootique forum](https://groups.google.com/forum/#!forum/bootique-user).*
@@ -24,22 +24,36 @@ Here is how to build it:
 
 Now you can check the options available in your app:
 
-	java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar
+    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar
 
-	Option                    Description
-    ------                    -----------
-    --config <yaml_location>  Specifies YAML config location, which
-                                can be a file path or a URL.
-    --exec                    Executes one or more jobs. Jobs are
-                                specified with '--job' options
-    --help                    Prints this message.
-    --job <job_name>          Specifies the name of the job to run
-                                with '--exec'. Available job names
-                                can be viewed using '--list' command.
-    --list                    Lists all jobs available in the app
-    --schedule                Schedules and executes jobs according
-                                to configuration. Waits indefinitely
-                                on the foreground.
+    OPTIONS
+          -c yaml_location, --config=yaml_location
+               Specifies YAML config location, which can be a file path or a URL.
+    
+          -e, --exec
+               Executes one or more jobs. Jobs are specified with '--job' options
+    
+          -h, --help
+               Prints this message.
+    
+          -H, --help-config
+               Prints information about application modules and their configuration
+               options.
+    
+          -j job_name, --job=job_name
+               Specifies the name of the job to run with '--exec'. Available job
+               names can be viewed using '--list' command.
+    
+          -l, --list
+               Lists all jobs available in the app
+    
+          --schedule
+               Schedules and executes jobs according to configuration. Waits
+               indefinitely on the foreground.
+    
+          --serial
+               Enforces sequential execution of the jobs, specified with '--job'
+               options.
 
 One of the options is ```--list``` that tells you what jobs are available:
 
