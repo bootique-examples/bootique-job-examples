@@ -1,17 +1,18 @@
 package io.bootique.job.demo;
 
-import com.google.inject.Binder;
-import com.google.inject.Module;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
+import io.bootique.BaseModule;
 import io.bootique.Bootique;
+import io.bootique.di.Binder;
+import io.bootique.di.Provides;
 import io.bootique.job.runtime.JobModule;
 import io.bootique.job.demo.services.EchoService;
+
+import javax.inject.Singleton;
 
 /**
  * A runnable Bootique + Jobs application.
  */
-public class App implements Module {
+public class App extends BaseModule {
 
     public static void main(String[] args) {
         Bootique.app(args)
