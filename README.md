@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bootique-examples/bootique-jobs-demo.svg)](https://travis-ci.org/bootique-examples/bootique-jobs-demo)
+[![verify](https://github.com/bootique-examples/bootique-jobs-demo/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-jobs-demo/actions/workflows/verify.yml)
 
 # bootique-jobs-demo
 
