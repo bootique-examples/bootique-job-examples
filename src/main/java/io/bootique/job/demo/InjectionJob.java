@@ -1,7 +1,5 @@
 package io.bootique.job.demo;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 import io.bootique.job.BaseJob;
 import io.bootique.job.JobMetadata;
 import io.bootique.job.runnable.JobResult;
@@ -9,6 +7,8 @@ import io.bootique.job.demo.services.EchoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
 import java.util.Map;
 
 public class InjectionJob extends BaseJob {
