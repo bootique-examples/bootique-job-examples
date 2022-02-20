@@ -9,7 +9,7 @@ An example that explains how to write jobs on [Bootique](http://bootique.io) pla
 
 ## Prerequisites
 
-* Java 1.8 or newer.
+* Java 17 or newer.
 * Apache Maven.
 
 ## Build the Demo
@@ -24,7 +24,7 @@ Here is how to build it:
 
 Now you can check the options available in your app:
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar
+    java -jar target/bootique-jobs-demo-*.jar
 
     OPTIONS
           -c yaml_location, --config=yaml_location
@@ -57,7 +57,7 @@ Now you can check the options available in your app:
 
 One of the options is ```--list``` that tells you what jobs are available:
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --list
+    java -jar target/bootique-jobs-demo-*.jar --list
 
     Available jobs:
          - simple
@@ -69,20 +69,20 @@ From here you have two options - run one or more jobs once from the command line
 the jobs run on a defined schedule. First option is great for testing/debugging or when you have an external scheduler
 (such as UNIX cron). So let's run both jobs at once:
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=simple --job=job1
+    java -jar target/bootique-jobs-demo-*.jar --exec --job=simple --job=job1
 
 Notice that the two jobs are executed in parallel. Some jobs support parameters, declaring them in metadata. Parameters
 can be configured in YAML configuration file under the "jobs" key (or via other Bootique configuration mechanisms, such
 as environment variables). Check [```params.yml```](https://github.com/bootique-examples/bootique-jobs-demo/blob/master/params.yml) and ```ParameterizedJob``` for an example. You can run this job as
 follows:
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=parameterized --config=params.yml
+    java -jar target/bootique-jobs-demo-*.jar --exec --job=parameterized --config=params.yml
 
 Now let's schedule jobs to run at a certain interval. Scheduling information is placed in a YAML file under
 the "scheduler" key. Check [```scheduler.yml```](https://github.com/bootique-examples/bootique-jobs-demo/blob/master/scheduler.yml) for an example. It shows scheduling jobs with fixed delay, as well
 as using a cron expression. Run it and wait and see how jobs are invoked periodically (use Ctrl-C to stop the application):
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --schedule --config=scheduler.yml
+    java -jar target/bootique-jobs-demo-*.jar --schedule --config=scheduler.yml
 
 
 ## Clustering Jobs with Zookeeper
