@@ -24,9 +24,9 @@ git clone git@github.com:bootique-examples/bootique-job-examples.git
 cd bootique-job-examples
 ```
 
-## Build, test and package
+## Build and package
 
-Run the following command to build the code, run the tests and package the app:
+Run the following command to build the code and package the app:
 ```
 mvn clean package
 ```
