@@ -84,13 +84,13 @@ Available jobs:
      - parameterized(d:date, l:long)
 ```
 
-Run `-e` (or `--exec`) command with one or more `-j` (`--job`) options to run some jobs once:
+Run `-e` (or `--exec`) command with one or more `-j` (`--job`) options to execute some jobs once:
 
 ```bash
 java -jar target/bootique-job-examples-3.0.jar --exec --job=job1 --job=job2
 ```
 
-Note that the two specified jobs are executed in parallel. To execute them sequentially, use the `--serial` option. Next,
+Note that the two specified jobs are run in parallel. To execute them sequentially, use the `--serial` option. Next,
 let's run a job with parameters specified in the YAML file:
 
 ```bash
