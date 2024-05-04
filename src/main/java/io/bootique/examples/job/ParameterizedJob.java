@@ -1,8 +1,8 @@
-package io.bootique.job.demo;
+package io.bootique.examples.job;
 
 import io.bootique.job.BaseJob;
 import io.bootique.job.JobMetadata;
-import io.bootique.job.runnable.JobResult;
+import io.bootique.job.JobOutcome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,9 @@ public class ParameterizedJob extends BaseJob {
     private static final String LONG_PARAM = "l";
 
     public ParameterizedJob() {
-        // pass a metadata object to the super constructor that defines supported parameter names and types
+        // Optionally, define parameters metadata.
+        // This allows Bootique to generate parameter help for the "--list" command,
+        // and also convert incoming parameters to the correct type
         super(JobMetadata.builder(ParameterizedJob.class)
                 .dateParam(DATE_PARAM)
                 .longParam(LONG_PARAM)
@@ -24,12 +26,12 @@ public class ParameterizedJob extends BaseJob {
     }
 
     @Override
-    public JobResult run(Map<String, Object> params) {
+    public JobOutcome run(Map<String, Object> params) {
 
         LOGGER.info("Job runs with parameters: (d: {}), (l: {})"
                 , params.get(DATE_PARAM)
                 , params.get(LONG_PARAM));
 
-        return JobResult.success(getMetadata());
+        return JobOutcome.succeeded();
     }
 }

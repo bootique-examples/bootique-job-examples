@@ -1,4 +1,4 @@
-package io.bootique.job.demo.services;
+package io.bootique.examples.job;
 
 /**
  * A dummy service that "echos" its method argument.

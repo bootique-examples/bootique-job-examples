@@ -1,94 +1,103 @@
-[![verify](https://github.com/bootique-examples/bootique-jobs-demo/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-jobs-demo/actions/workflows/verify.yml)
+[![verify](https://github.com/bootique-examples/bootique-jobs-examples/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-jobs-examples/actions/workflows/verify.yml)
 
-# bootique-jobs-demo
+# Bootique 3.x Job Examples
 
-An example that explains how to write jobs on [Bootique](http://bootique.io) platform. Jobs can be run individually from command line, or scheduled with internal scheduler.
+Shows how to write executable jobs on [Bootique](http://bootique.io) platform. Jobs can either be run individually from command line, 
+or scheduled to run periodically via the internal scheduler.
 
-*For additional help/questions about this example send a message to
-[Bootique forum](https://groups.google.com/forum/#!forum/bootique-user).*
+Different Git branches contain example code for different versions of Bootique:
 
-You can find different versions of framework in use at
-* [1.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/1.x)
+* [3.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/3.x)
 * [2.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/2.x)
+* [1.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/1.x)
 
-## Prerequisites
+To build and run the project, ensure you have the following installed on your machine:
 
-* Java 1.8 or newer.
-* Apache Maven.
+* Java 11 or newer
+* Maven
 
-## Build the Demo
+and then follow these steps:
 
-Here is how to build it:
+## Checkout
+```
+git clone git@github.com:bootique-examples/bootique-job-examples.git
+cd bootique-job-examples
+```
 
-	git clone git@github.com:bootique-examples/bootique-jobs-demo.git
-	cd bootique-jobs-demo
-	mvn package
+## Build, test and package
 
-## Run the Demo
+Run the following command to build the code, run the tests and package the app:
+```
+mvn clean package
+```
+
+## Run
 
 Now you can check the options available in your app:
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar
+```bash
+java -jar target/bootique-job-examples-3.0.jar
+```
 
-    OPTIONS
-          -c yaml_location, --config=yaml_location
-               Specifies YAML config location, which can be a file path or a URL.
-    
-          -e, --exec
-               Executes one or more jobs. Jobs are specified with '--job' options
-    
-          -h, --help
-               Prints this message.
-    
-          -H, --help-config
-               Prints information about application modules and their configuration
-               options.
-    
-          -j job_name, --job=job_name
-               Specifies the name of the job to run with '--exec'. Available job
-               names can be viewed using '--list' command.
-    
-          -l, --list
-               Lists all jobs available in the app
-    
-          --schedule
-               Schedules and executes jobs according to configuration. Waits
-               indefinitely on the foreground.
-    
-          --serial
-               Enforces sequential execution of the jobs, specified with '--job'
-               options.
+```
+NAME
+      bootique-job-examples-3.0.jar
 
-One of the options is ```--list``` that tells you what jobs are available:
+OPTIONS
+      -c yaml_location, --config=yaml_location
+           Specifies YAML config location, which can be a file path or a URL.
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --list
+      -e, --exec
+           Executes one or more jobs. Jobs are specified with '--job' options
 
-    Available jobs:
-         - simple
-         - job1
-         - injection
-         - parameterized(d:date, l:long)
+      -h, --help
+           Prints this message.
 
-From here you have two options - run one or more jobs once from the command line, or start the app as a daemon and let
-the jobs run on a defined schedule. First option is great for testing/debugging or when you have an external scheduler
-(such as UNIX cron). So let's run both jobs at once:
+      -H, --help-config
+           Prints information about application modules and their configuration options.
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=simple --job=job1
+      -j job_name, --job=job_name
+           Specifies the name of a job to execute or schedule. Job name may be optionally followed by a JSON map containing job parameters (e.g.
+           'myjob{"p":1}') Used in conjunction with '--execute' or '--schedule' commands. Available job names can be viewed with '--list' command.
 
-Notice that the two jobs are executed in parallel. Some jobs support parameters, declaring them in metadata. Parameters
-can be configured in YAML configuration file under the "jobs" key (or via other Bootique configuration mechanisms, such
-as environment variables). Check [```params.yml```](https://github.com/bootique-examples/bootique-jobs-demo/blob/master/params.yml) and ```ParameterizedJob``` for an example. You can run this job as
-follows:
+      -l, --list
+           Lists all jobs available in the app
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --exec --job=parameterized --config=params.yml
+      --schedule
+           Starts a job scheduler that will execute job(s) periodically according to configuration and an optional '--job' arguments.
 
-Now let's schedule jobs to run at a certain interval. Scheduling information is placed in a YAML file under
-the "scheduler" key. Check [```scheduler.yml```](https://github.com/bootique-examples/bootique-jobs-demo/blob/master/scheduler.yml) for an example. It shows scheduling jobs with fixed delay, as well
-as using a cron expression. Run it and wait and see how jobs are invoked periodically (use Ctrl-C to stop the application):
+      --serial
+           Enforces sequential execution of the jobs, specified with '--job' options.
+```
 
-    java -jar target/bootique-jobs-demo-1.0-SNAPSHOT.jar --schedule --config=scheduler.yml
+Run the `-l` (or `--list`) command to display the available jobs:
 
+```bash
+java -jar target/bootique-job-examples-3.0.jar --list
+```
 
-## Clustering Jobs with Zookeeper
+```
+Available jobs:
+     - injection()
+     - job1()
+     - job2()
+     - parameterized(d:date, l:long)
+```
 
-TODO
+Run `-e` (or `--exec`) command with one or more `-j` (`--job`) options to run some jobs once:
+
+```bash
+java -jar target/bootique-job-examples-3.0.jar --exec --job=job1 --job=job2
+```
+
+Note that the two specified jobs are executed in parallel. To execute them sequentially, use the `--serial` option. Next,
+let's run a job with parameters specified in the YAML file:
+
+```bash
+java -jar target/bootique-job-examples-3.0.jar --exec --job=parameterized --config=params.yml
+```
+Finally, let's run a few scheduled jobs with `--schedule` command and scheduling triggers configured in `scheduler.yml`:
+```bash
+java -jar target/bootique-job-examples-3.0.jar --schedule --config=scheduler.yml
+```
+Scheduled jobs will run indefinitely, until the Java process is killed. 

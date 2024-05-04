@@ -1,11 +1,10 @@
-# an example of configuring job scheduling:
 scheduler:
   threadPoolSize: 3
   triggers:
-    - job: simple
+    - job: job1
       initialDelay: 300ms
       # run every 2 seconds
       fixedDelay: 2s
-    - job: job1
+    - job: job2
       # run every 10 seconds
       cron: "3,13,23,33,43,53 * * * * ?"
