@@ -1,4 +1,4 @@
-[![verify](https://github.com/bootique-examples/bootique-jobs-examples/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-jobs-examples/actions/workflows/verify.yml)
+[![verify](https://github.com/bootique-examples/bootique-job-examples/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-job-examples/actions/workflows/verify.yml)
 
 # Bootique 3.x Job Examples
 
@@ -7,9 +7,9 @@ or scheduled to run periodically via the internal scheduler.
 
 Different Git branches contain example code for different versions of Bootique:
 
-* [3.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/3.x)
-* [2.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/2.x)
-* [1.x](https://github.com/bootique-examples/bootique-jobs-demo/tree/1.x)
+* [3.x](https://github.com/bootique-examples/bootique-job-examples/tree/3.x)
+* [2.x](https://github.com/bootique-examples/bootique-job-examples/tree/2.x)
+* [1.x](https://github.com/bootique-examples/bootique-job-examples/tree/1.x)
 
 To build and run the project, ensure you have the following installed on your machine:
 
