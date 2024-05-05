@@ -57,14 +57,17 @@ OPTIONS
            Prints information about application modules and their configuration options.
 
       -j job_name, --job=job_name
-           Specifies the name of a job to execute or schedule. Job name may be optionally followed by a JSON map containing job parameters (e.g.
-           'myjob{"p":1}') Used in conjunction with '--execute' or '--schedule' commands. Available job names can be viewed with '--list' command.
+           Specifies the name of a job to execute or schedule. Job name may be optionally
+           followed by a JSON map containing job parameters (e.g. 'myjob{"p":1}') Used in
+           conjunction with '--execute' or '--schedule' commands. Available job names can be
+           viewed with '--list' command.
 
       -l, --list
            Lists all jobs available in the app
 
       --schedule
-           Starts a job scheduler that will execute job(s) periodically according to configuration and an optional '--job' arguments.
+           Starts a job scheduler that will execute job(s) periodically according to
+           configuration and an optional '--job' arguments.
 
       --serial
            Enforces sequential execution of the jobs, specified with '--job' options.
