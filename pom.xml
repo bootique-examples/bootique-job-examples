@@ -10,20 +10,10 @@
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
-        <!-- TODO: fix the version once M5 becomes available -->
-        <bootique.version>3.0-SNAPSHOT</bootique.version>
+        <bootique.version>3.0-RC1</bootique.version>
 
         <main.class>io.bootique.examples.job.App</main.class>
     </properties>
-
-    <repositories>
-        <!-- TODO: won't be needed once M5 becomes available -->
-        <repository>
-            <id>bootique-snapshots</id>
-            <name>Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-    </repositories>
 
     <dependencyManagement>
         <dependencies>
