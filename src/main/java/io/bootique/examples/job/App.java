@@ -6,8 +6,7 @@ import io.bootique.Bootique;
 import io.bootique.di.Binder;
 import io.bootique.di.Provides;
 import io.bootique.job.JobsModule;
-
-import javax.inject.Singleton;
+import jakarta.inject.Singleton;
 
 /**
  * A runnable Bootique + Jobs application.

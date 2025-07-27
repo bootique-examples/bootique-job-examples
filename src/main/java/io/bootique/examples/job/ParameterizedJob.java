@@ -28,9 +28,9 @@ public class ParameterizedJob extends BaseJob {
     @Override
     public JobOutcome run(Map<String, Object> params) {
 
-        LOGGER.info("Job runs with parameters: (d: {}), (l: {})"
-                , params.get(DATE_PARAM)
-                , params.get(LONG_PARAM));
+        LOGGER.info("Job runs with parameters: (d: {}), (l: {})",
+                params.get(DATE_PARAM),
+                params.get(LONG_PARAM));
 
         return JobOutcome.succeeded();
     }

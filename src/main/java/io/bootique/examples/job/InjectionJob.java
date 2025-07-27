@@ -2,11 +2,11 @@ package io.bootique.examples.job;
 
 import io.bootique.job.Job;
 import io.bootique.job.JobOutcome;
+import jakarta.inject.Inject;
+import jakarta.inject.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
-import javax.inject.Provider;
 import java.util.Map;
 
 public class InjectionJob implements Job {
