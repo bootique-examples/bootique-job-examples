@@ -1,19 +1,20 @@
 [![verify](https://github.com/bootique-examples/bootique-job-examples/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-job-examples/actions/workflows/verify.yml)
 
-# Bootique 3.x Job Examples
+# Bootique 4.x Job Examples
 
 Shows how to write executable jobs on [Bootique](http://bootique.io) platform. Jobs can either be run individually from command line, 
 or scheduled to run periodically via the internal scheduler.
 
 Different Git branches contain example code for different versions of Bootique:
 
+* [4.x](https://github.com/bootique-examples/bootique-job-examples/tree/4.x)
 * [3.x](https://github.com/bootique-examples/bootique-job-examples/tree/3.x)
 * [2.x](https://github.com/bootique-examples/bootique-job-examples/tree/2.x)
 * [1.x](https://github.com/bootique-examples/bootique-job-examples/tree/1.x)
 
 To build and run the project, ensure you have the following installed on your machine:
 
-* Java 11 or newer
+* Java 21 or newer
 * Maven
 
 and then follow these steps:
@@ -36,12 +37,12 @@ mvn clean package
 Now you can check the options available in your app:
 
 ```bash
-java -jar target/bootique-job-examples-3.0.jar
+java -jar target/bootique-job-examples-4.0.jar
 ```
 
 ```
 NAME
-      bootique-job-examples-3.0.jar
+      bootique-job-examples-4.0.jar
 
 OPTIONS
       -c yaml_location, --config=yaml_location
@@ -76,7 +77,7 @@ OPTIONS
 Run the `-l` (or `--list`) command to display the available jobs:
 
 ```bash
-java -jar target/bootique-job-examples-3.0.jar --list
+java -jar target/bootique-job-examples-4.0.jar --list
 ```
 
 ```
@@ -90,17 +91,17 @@ Available jobs:
 Run `-e` (or `--exec`) command with one or more `-j` (`--job`) options to execute some jobs once:
 
 ```bash
-java -jar target/bootique-job-examples-3.0.jar --exec --job=job1 --job=job2
+java -jar target/bootique-job-examples-4.0.jar --exec --job=job1 --job=job2
 ```
 
 Note that the two specified jobs are run in parallel. To execute them sequentially, use the `--serial` option. Next,
 let's run a job with parameters specified in the YAML file:
 
 ```bash
-java -jar target/bootique-job-examples-3.0.jar --exec --job=parameterized --config=params.yml
+java -jar target/bootique-job-examples-4.0.jar --exec --job=parameterized --config=params.yml
 ```
 Finally, let's run a few scheduled jobs with `--schedule` command and scheduling triggers configured in `scheduler.yml`:
 ```bash
-java -jar target/bootique-job-examples-3.0.jar --schedule --config=scheduler.yml
+java -jar target/bootique-job-examples-4.0.jar --schedule --config=scheduler.yml
 ```
 Scheduled jobs will run indefinitely, until the Java process is killed. 

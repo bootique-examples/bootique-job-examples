@@ -5,12 +5,12 @@
 
     <groupId>io.bootique.examples.job</groupId>
     <artifactId>bootique-job-examples</artifactId>
-    <version>3.0</version>
+    <version>4.0</version>
     <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
-        <bootique.version>3.0-RC1</bootique.version>
+        <bootique.version>4.0-SNAPSHOT</bootique.version>
 
         <main.class>io.bootique.examples.job.App</main.class>
     </properties>
@@ -37,6 +37,19 @@
             <artifactId>bootique-logback</artifactId>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>bootique-snapshots</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
