@@ -10,7 +10,7 @@
 
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
-        <bootique.version>4.0-SNAPSHOT</bootique.version>
+        <bootique.version>4.0-M3</bootique.version>
 
         <main.class>io.bootique.examples.job.App</main.class>
     </properties>
@@ -37,19 +37,6 @@
             <artifactId>bootique-logback</artifactId>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>bootique-snapshots</id>
-            <url>https://central.sonatype.com/repository/maven-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
